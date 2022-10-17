@@ -10,22 +10,22 @@ public class Configuration {
 
     private final Properties p;
 
-    public Configuration() throws Exception {
-        FileReader reader = new FileReader();
+    public Configuration(String propFileName) throws Exception {
+        FileReader reader = new FileReader(propFileName);
 
         // create properties object
-        p = new Properties();
+        this.p = new Properties();
 
         // add wrapper around reader object
-        p.load(reader);
+        this.p.load(reader);
     }
 
     public String getProperty(String propName) {
-        return p.getProperty(propName);
+        return this.p.getProperty(propName);
     }
 
     public void setProperty(String propKey, String propValue) {
-        p.setProperty(propKey,propValue);
+        this.p.setProperty(propKey,propValue);
     }
 
 }
